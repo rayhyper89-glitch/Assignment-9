@@ -18,7 +18,9 @@ const button = document.querySelector("#fetch-btn");
 const gifContainer = document.querySelector("#gif-container");
 button.addEventListener("click", async () => {
   gifContainer.innerHTML = ""; // clear old gifs
+const searchTerm = document.querySelector("#search").value;
 
+const endpoint = `https://api.giphy.com/v1/gifs/search?api_key=YOUR_API_KEY&q=${searchTerm}&limit=12`;
   const images = await fetchGifs();
 
   images.forEach(url => {
